@@ -14,7 +14,6 @@ features <- read.table("UCI HAR Dataset/features.txt",header=FALSE,stringsAsFact
 # Add more feature names
 features <- rbind(features, c(562,"activity"))
 features <- rbind(features, c(563,"subject_id"))
-features <- rbind(features, c(564,"test/train"))
 
 # Read train file
 x_train <- read.table("UCI HAR Dataset/train/X_train.txt",header=FALSE)
@@ -27,16 +26,12 @@ x_train[,562] <- lapply(y_train,label_to_name)
 subject_train <- read.table("UCI HAR Dataset/train/subject_train.txt",header=FALSE)
 x_train[,563] <- subject_train
 
-# Add value for "test/train" column
-x_train[,564] <- rep("train", nrow(x_train))
-
 # Repeat all of the above steps for test data
 x_test <- read.table("UCI HAR Dataset/test/X_test.txt",header=FALSE)
 y_test <- read.table("UCI HAR Dataset/test/y_test.txt",header=FALSE)
 x_test[,562] <- lapply(y_test, label_to_name)
 subject_test <- read.table("UCI HAR Dataset/test/subject_test.txt",header=FALSE)
 x_test[,563] <- subject_test
-x_test[,564] <- rep("test", nrow(x_test))
 
 # Combine the two data sets
 dataset <- rbind(x_train,x_test)

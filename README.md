@@ -8,11 +8,11 @@ The train and test data contain an INT activity_label variable. At a later point
 
 Step 2: Reading feature names from file 'features.txt'
 
-Once we're loading the train and test data we'd like to add descriptive column headers. They are listed in the given file. In addition, we want to add additional columns to our data, namely the activity, subject_id, and whether a given data point used to belong to the 'train' or 'test' set (note not all of these data are required by the project description).
+Once we're loading the train and test data we'd like to add descriptive column headers. They are listed in the given file. In addition, we want to add additional columns to our data, namely the activity and subject_id.
 
 Step 3: Read the training data from file 'train/X_train.txt'
 
-Step 4: Add activity, subject_id and test/train tag
+Step 4: Add activity and subject_id
 
 Here we are using previously defined function 'label_to_name' to replace activity labels with their names. The activity labels are in file 'train/y_train.txt'. The subject IDs are in file 'train/subject_train.txt'.
 
