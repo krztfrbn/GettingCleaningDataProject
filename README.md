@@ -32,5 +32,5 @@ Here we create a dataframe containing only 'activity', 'subject_id', as well as 
 
 Step 9: Get the mean of each variable for each subject_id and activity pairing
 
-Step 10: Save the results to file 'tidy_data_avrg'
+Step 10: Save the results to file 'tidy_data_avrg.txt'
 
