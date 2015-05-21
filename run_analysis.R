@@ -1,3 +1,5 @@
+library(dplyr)
+
 # Read activity labels 1-6 with their desription from activity_labels.txt
 activity_labels <- read.table("UCI HAR Dataset/activity_labels.txt",header=FALSE,stringsAsFactors=FALSE)
 
@@ -42,11 +44,11 @@ dataset <- rbind(x_train,x_test)
 # Set header for train data
 colnames(dataset) <- features[,2]
 
-# Find all column headers with 'mean' or 'std' in them
-headers_sub <- grep(".*(?:mean|std|activity|subject).*", names(dataset), value=TRUE, perl=TRUE)
-
 # Translate table into a dataframe
 df <- as.data.frame(dataset)
+
+# Find all column headers with 'mean' or 'std' in them
+headers_sub <- grep(".*(?:mean|std|activity|subject).*", names(dataset), value=TRUE, perl=TRUE)
 
 # Delete all columns that do not contain measurements of mean and std
 df_sub <- df[,(colnames(df) %in% headers_sub)]
@@ -55,7 +57,7 @@ df_sub <- df[,(colnames(df) %in% headers_sub)]
 t <- df_sub %>% group_by(activity,subject_id) %>% summarise_each(funs(mean))
 
 # Create file
-write.table(t, file="tidy_data_avrg",row.name=FALSE)
+write.table(t, file="tidy_data_avrg.txt",row.name=FALSE)
 
 
 
